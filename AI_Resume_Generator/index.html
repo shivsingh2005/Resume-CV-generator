@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI Resume & Cover Letter Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="hero-inner">
+        <h1>AI Resume & Cover Letter Generator</h1>
+        <p>Generate ATS-friendly resumes and personalized cover letters using Groq.</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card glass form-card">
+        <h2>Candidate Details</h2>
+        
+          <div class="field-group">
+            <label>Model</label>
+            <input id="model" type="text" placeholder="Model (e.g. llama-3.1-8b-instant)" value="llama-3.1-8b-instant">
+            <div class="muted" style="font-size:12px;margin-top:6px">If you get a model-decommissioned error, choose a supported model here.</div>
+          </div>
+
+        <form id="genForm">
+          <div class="row">
+            <div class="field">
+              <label>Full Name</label>
+              <input name="full_name" required>
+            </div>
+            <div class="field">
+              <label>Email</label>
+              <input name="email" type="email" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label>Phone</label>
+              <input name="phone" type="tel">
+            </div>
+            <div class="field">
+              <label>Target Job Role</label>
+              <input name="target_role">
+            </div>
+          </div>
+
+          <label>Education</label>
+          <textarea name="education" placeholder="Degree; Institution; Years (one per line)"></textarea>
+
+          <label>Technical Skills</label>
+          <textarea name="skills" placeholder="Comma separated skills"></textarea>
+
+          <label>Projects</label>
+          <textarea name="projects" placeholder="Short bullets or descriptions (one per line)"></textarea>
+
+          <label>Work Experience</label>
+          <textarea name="experience" placeholder="Title; Company; Dates; bullets (one per line)"></textarea>
+
+          <label>Certifications</label>
+          <textarea name="certifications" placeholder="One per line"></textarea>
+
+        <div class="actions">
+          <button id="submitBtn" class="btn" type="submit">Generate</button>
+          <div id="status" class="status muted">No API key loaded. Run <code>python create_config.py</code> to generate <code>config.js</code> from your <code>.env</code>, or add <code>config.js</code> manually.</div>
+        </div>
+        </form>
+      </section>
+
+      <section class="outputs">
+        <div class="card glass output-card">
+          <div class="card-head">
+            <h3>Generated Resume</h3>
+            <div class="actions-small">
+              <button class="copy-btn" data-target="resume">Copy</button>
+              <button class="download-btn" data-target="resume">Download TXT</button>
+            </div>
+          </div>
+          <pre id="resume" class="output" aria-live="polite"></pre>
+        </div>
+
+        <div class="card glass output-card">
+          <div class="card-head">
+            <h3>Generated Cover Letter</h3>
+            <div class="actions-small">
+              <button class="copy-btn" data-target="cover">Copy</button>
+              <button class="download-btn" data-target="cover">Download TXT</button>
+            </div>
+          </div>
+          <pre id="cover" class="output" aria-live="polite"></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">Powered by Generative AI — use your Groq API key</footer>
+
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

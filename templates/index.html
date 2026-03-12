@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI Resume & Cover Letter Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>AI Resume & Cover Letter Generator</h1>
+      <p>Fast, professional resumes and cover letters tailored to your target role.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card glass form-card">
+      <h2>Candidate Details</h2>
+      <form id="genForm">
+        <div class="row">
+          <input name="full_name" placeholder="Full Name" required>
+          <input name="email" placeholder="Email" required>
+        </div>
+        <div class="row">
+          <input name="phone" placeholder="Phone">
+          <input name="target_role" placeholder="Target Job Role">
+        </div>
+        <label>Education</label>
+        <textarea name="education" placeholder="Degrees, institutions, years"></textarea>
+        <label>Technical Skills</label>
+        <textarea name="skills" placeholder="Comma separated skills"></textarea>
+        <label>Projects</label>
+        <textarea name="projects" placeholder="Short descriptions"></textarea>
+        <label>Work Experience</label>
+        <textarea name="experience" placeholder="Roles, companies, dates, bullets"></textarea>
+        <label>Certifications</label>
+        <textarea name="certifications" placeholder="Certifications"></textarea>
+
+        <div class="actions">
+          <button id="submitBtn" type="submit" class="btn">Generate</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="outputs">
+      <div class="card glass output-card">
+        <div class="card-head">
+          <h3>Generated Resume</h3>
+          <div class="actions-small">
+            <button class="copy-btn" data-target="resume">Copy</button>
+            <button class="download-btn" data-target="resume">Download TXT</button>
+          </div>
+        </div>
+        <pre id="resume" class="output"></pre>
+      </div>
+
+      <div class="card glass output-card">
+        <div class="card-head">
+          <h3>Generated Cover Letter</h3>
+          <div class="actions-small">
+            <button class="copy-btn" data-target="cover">Copy</button>
+            <button class="download-btn" data-target="cover">Download TXT</button>
+          </div>
+        </div>
+        <pre id="cover" class="output"></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">Powered by Generative AI</footer>
+
+  <div id="loading" class="loading hidden">
+    <div class="spinner"></div>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
