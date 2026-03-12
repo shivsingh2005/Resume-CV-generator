@@ -1,4 +1,4 @@
 flask
 nbformat
 nbconvert
-ipython
+ipython&#10;groq==0.4.1

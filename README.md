@@ -83,6 +83,4 @@ Flask App (app.py) --> converts generator_notebook.ipynb --> Groq API --> JSON {
 - Add fields: Update UI/JS/payload.
 - Prod: Use Gunicorn/NGINX, secure key proxy.
 
-## License
-
-MIT. Powered by [Groq](https://groq.com).
+## Vercel Deployment\n\n1. Install Vercel CLI: `npm i -g vercel`\n2. Login: `vercel login`\n3. Deploy: `vercel --prod`\n4. Set env vars in dashboard:\n   - `GROQ_API_KEY`: your key\n   - `GROQ_MODEL`: optional (default llama-3.1-8b-instant)\n5. Visit deployed URL.\n\n**vercel.json** increases timeout to 30s for LLM.\n\n## License\n\nMIT. Powered by [Groq](https://groq.com).
